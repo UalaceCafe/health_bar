@@ -17,10 +17,10 @@
 
   * `x:` the x coordinate of the health bar (default: 15)
   * `y:` the y coordinate of the health bar (default: 10)
-  * `width:` the width of the health bar, including the frame. The true health bar has a width of `width - 4`, which means that the frame has a thickness of 2 (default: 100)
+  * `width:` the width of the health bar, including the frame. The actual health bar has a width of `width - 4`, which means that the frame has a thickness of 2 (default: 100)
   * `height:` the height of the health bar, including the frame. The same rules applies (default: 20)
   * `background:` the background bar color (default: `#2e2e2e`)
-  * `change_color:` defines if the color should change when the current health changes. If set to true, full health results in a green bar and low health results in a red bar - in between is orange (default: `false`)
+  * `change_color:` defines if the bar color should change when the current health changes. If set to true, full health results in a green bar and low health results in a red bar - colors in between are calculated using linear interpolation (default: `false`)
   * `max_health:` self explanatory. Cannot be set lower or equal to zero, so be careful when calculating/setting the health of your character/enemy (default: 100)
   * `current_health:` self explanatory. This one doesn't raise errors on wrong values as they are automatically corrected on the update block (default: `max_health`)
 
