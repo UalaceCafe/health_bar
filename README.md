@@ -3,10 +3,10 @@
 ![](https://i.imgur.com/mGdoR2S.gif)
 
 ## What is it?
-  - A plug-n-play script for Ruby2D that provides a simple looking health bar for your game or project.
+  - A copy-n-paste script for Ruby2D that provides a simple looking health bar for your game or project.
 
 ## How to use it?
-  - For the script to work you will need the `ruby2d` and the `math2d` gems.
+  - For the script to work you will need the [ruby2d](https://github.com/ruby2d/ruby2d) and the [math2d](https://github.com/UalaceCafe/math2d) gems.
   - Simply copy and paste the `health_bar.rb` script into your project folder and then require it in your code.
   - Create a Health Bar entity with `HealthBar.new(`[options](#Options)`)`.
   - Add the health bar object to the scene with the `add` method (e.g.: `healthbar.add`).
