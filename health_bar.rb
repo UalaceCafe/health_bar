@@ -2,48 +2,48 @@ require 'ruby2d'
 require 'math2d'
 
 class HealthBar < Ruby2D::Entity
-  attr_reader :max_health
-  attr_accessor :current_health
+  attr_reader :max
+  attr_accessor :current
 
   def initialize(opts = {})
     @x = opts[:x] || 15
     @y = opts[:y] || 10
     @width = opts[:width] || 100
     @height = opts[:height] || 20
+    @color1 = opts[:color1] || '#44ff00'
+    @color2 = opts[:color2] || '#ff0011'
     @background = opts[:background] || '#2e2e2e'
     @change_color = opts[:change_color] || false
 
-    @max_health = opts[:max].to_i || 100
-    raise ArgumentError, 'max health cannot be less or equal to zero' if @max_health <= 0
+    @max = opts[:max] || 100
+    raise ArgumentError, 'max health cannot be less or equal to zero' if @max <= 0
 
-    @current_health = opts[:current].to_i || @max_health
+    @current = opts[:current] || @max
   end
 
-  def max_health=(value)
+  def max=(value)
     raise ArgumentError, 'max health cannot be less or equal to zero' if value <= 0
     
-    @max_health = value
+    @max = value
   end
 
   def render; end
 
   def update
-    @current_health = 0 if @current_health.negative?
-    @current_health = @max_health if @current_health > @max_health
+    @current = 0 if @current.negative?
+    @current = @max if @current > @max
 
     frame_size = 2
     Rectangle.new(x: @x, y: @y, width: @width, height: @height, color: 'black')
     Rectangle.new(x: @x + frame_size, y: @y + frame_size, width: @width - 2 * frame_size, height: @height - 2 * frame_size, color: @background)
 
-    bar_width = Utils2D.map(@current_health, 0, @max_health, 0, @width - 2 * frame_size)
+    bar_width = Utils2D.map(@current, 0, @max, 0, @width - 2 * frame_size)
     color = if @change_color
-              color_green = 0x44FF00
-              color_red = 0xFF0011
-              amount = @current_health / @max_health.to_f
+              amount = @current / @max.to_f
 
-              lerp_hex(color_green, color_red, amount)
+              lerp_hex(@color1.gsub('#', '').to_i(16), @color2.gsub('#', '').to_i(16), amount)
             else
-              '#44FF00'
+              @color1
             end
     Rectangle.new(x: @x + frame_size, y: @y + frame_size, width: bar_width, height: @height - 2 * frame_size, color: color)
   end
