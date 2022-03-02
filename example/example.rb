@@ -1,12 +1,19 @@
+#=
+# Controls:
+#   W - increase maximum health
+#   S - decrease maximum health
+#   A - decrease current health
+#   D - increase current health
+#=
 require 'ruby2d'
 require_relative '../health_bar'
 
-set(title: 'Health Bar example', width: 600, height: 400, background: '#205b7d')
+set(title: 'Health Bar example', width: 600, height: 400, fullscreen: true, background: '#205b7d')
 
 WIDTH = Window.width
 HEIGHT = Window.height
 
-health_bar = HealthBar.new(change_color: true)
+health_bar = HealthBar.new(color1: [0.266, 1, 0, 1], color2: [1, 0, 0.066, 1], change_color: true)
 
 on :key_held do |event|
   case event.key
