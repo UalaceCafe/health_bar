@@ -1,11 +1,13 @@
-# Health Bar
+![logo](healthbar_logo.png)
 
-![](https://i.imgur.com/mGdoR2S.gif)
+[![Ko-Fi](https://img.shields.io/static/v1?message=Buy%20me%20a%20coffee&logo=kofi&labelColor=ff5e5b&color=434B57&logoColor=white&label=%20)](https://ko-fi.com/ualacecafe)
 
 ## What is it?
   A copy-n-paste script for Ruby2D that provides the bare bones of a simple health bar for your game or project.
 
   Although the script is called HealthBar, you can use it to make any status bar you may need in your project.
+
+  ![gif](https://i.imgur.com/mGdoR2S.gif)
 
 ## How to use it?
   - The script is intended to be used with the [ruby2d gem](https://github.com/ruby2d/ruby2d). However, its logic can be used to implement the same feature in other engines.
